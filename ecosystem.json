@@ -1,0 +1,10 @@
+{
+  "apps": [
+    {
+      "name": "urlserver",
+      "script": "npm",
+      "args": "start",
+      "watch": true
+    }
+  ]
+}
