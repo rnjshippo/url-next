@@ -15,7 +15,6 @@ time, mark, audio, video {
 	padding: 0;
 	border: 0;
 	font-size: 100%;
-	font: inherit;
   vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
@@ -79,6 +78,31 @@ a {
   url(../public/fonts/NotoSansKR-Bold.otf) format('opentype')
 }
 
+@font-face{
+  font-family:NanumSquareRound;
+  font-style:normal;
+  font-weight:200;
+  src:url(../public/fonts/NanumSquareRoundOTFL.otf) format('opentype')
+}
+@font-face{
+  font-family:NanumSquareRound;
+  font-style:normal;
+  font-weight:400;
+  src:url(../public/fonts/NanumSquareRoundOTFR.otf) format('opentype')
+}
+@font-face{
+  font-family:NanumSquareRound;
+  font-style:normal;
+  font-weight:700;
+  src:url(../public/fonts/NanumSquareRoundOTFB.otf) format('opentype')
+}
+@font-face{
+  font-family:NanumSquareRound;
+  font-style:normal;
+  font-weight:800;
+  src:url(../public/fonts/NanumSquareRoundOTFEB.otf) format('opentype')
+}
+
 * {
-  font-family: 'Noto Sans', 'Noto Sans KR', '맑은고딕', 'MalgunGothic', sans-serif;
+  font-family: 'NanumSquareRound', 'Noto Sans', 'Noto Sans KR', '맑은고딕', 'MalgunGothic', sans-serif;
 }

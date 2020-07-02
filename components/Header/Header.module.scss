@@ -1,7 +1,19 @@
-.title{
-  font-weight : 700;
-  font-size : 1.6rem;
-  width:100%;
-  text-align: center;
+.header{
+  width:48rem;
+  margin-top : 1%;
+  display: block;
+  margin: 0 auto;
+}
+.logo{
+  width:18rem;
+  margin-top: 2%;
 }
 
+@media ( max-width: 767px ) {
+  .header{
+    width:100%;
+  }
+  .logo{
+    width:37.5%;
+  }
+}

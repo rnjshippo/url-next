@@ -12,7 +12,7 @@ export default () => {
   return (
     <>
       <Head>
-        <title>단축 URL - 주소 줄이기</title>
+        <title>단축URL 서비스 :: 링크 단축, 주소 줄이기</title>
       </Head>
       <Header
         setFullUrl={setFullUrl}

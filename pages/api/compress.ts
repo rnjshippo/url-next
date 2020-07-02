@@ -21,11 +21,9 @@ export default async function compress(req: NextApiRequest, res: NextApiResponse
     let shortUrl: string;
     if (rows[0]) {
       shortUrl = rows[0].shortUrl;
-      console.log("already exist");
     } else {
       shortUrl = shortId.generate();
       await model.url.addUrl(fullUrl, shortUrl);
-      console.log('add new');
     }
     res.json({ shortUrl });
   } else {

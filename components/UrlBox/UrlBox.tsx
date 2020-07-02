@@ -39,7 +39,8 @@ const Formbox = ({ resultUrl, fullUrl, buttonType, setFullUrl, setButtonType, se
   }
 
   const handleCopy = (copiedText: string, result: boolean) => {
-    alert("복사 완료");
+    // alert("복사 완료");
+    // TODO : alert 말고 깔끔한 알람창 구현
   }
 
   const handleKeyPress = (e: React.KeyboardEvent<HTMLElement>) => {
@@ -70,40 +71,40 @@ const Formbox = ({ resultUrl, fullUrl, buttonType, setFullUrl, setButtonType, se
       console.error("Error 변환 실패"); //TODO : 변환 실패 처리 
     }
   }
-  console.log(resultUrl === "")
   return (
     <>
       <div className={styles.url_div}>
         <div className={styles.title_div}>{titleText}</div>
+        <div className={styles.title_div2}>{subText}</div>
         <div className={styles.input_div}>
+          <img src={"/icons/link.svg"} className={styles.link_btn}></img>
           {visible ? <img src={"/icons/btn_clear.svg"} className={styles.clear_btn} onClick={clearInputBox} /> : null}
-          <input onChange={handleChange} onKeyPress={handleKeyPress} value={fullUrl} className={styles.url_box} placeholder={"http://"} />
+          <input onChange={handleChange} onKeyPress={handleKeyPress} value={fullUrl} className={styles.url_box} spellCheck={"false"} placeholder={"http://"} />
           {buttonType === TYPE_COMPRESS ?
             <Link href='/compress'>
               <a>
                 <button
                   onClick={handleSubmit}
                   className={styles.submit}>
-                  {"url 단축"}
+                  {"URL 단축"}
                 </button>
               </a>
             </Link> :
             <CopyToClipboard text={resultUrl} onCopy={handleCopy}>
               <button className={styles.submit}>
-                {"복사"}
+                {"URL 복사"}
               </button>
             </CopyToClipboard>}
         </div>
-        {resultUrl === "" ? <span className={styles.subtext}>{subText}</span> : null}
+        {resultUrl === "" ? <span className={styles.subtext}>{}</span> : <span className={styles.subtext}>{successText}</span>}
       </div>
     </>
   )
 }
 
-const titleText: string = '기다란 링크를 단축하다. hip.po';
-const subText: string = `가독성 떨어지는 링크는 그만!
-hip.po가 단축한 링크로 편리하게 공유하세요.
-`;
-const successText: string = '단축되었습니다. URL 복사버튼을 눌러서 단축된 URL을 사용하세요.'
+const titleText: string = `가독성 떨어지는 링크는 그만!`;
+const subText: string = `kooo에서 단축한 링크로 편리하게 공유하세요.`;
+const successText: string = `단축되었습니다! 
+URL 복사버튼을 눌러서 단축된 URL을 사용하세요.`;
 
 export default Formbox; 

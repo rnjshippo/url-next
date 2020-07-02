@@ -9,35 +9,19 @@ interface Props {
   setResultUrl(url: string): void;
 }
 const Header = ({ setFullUrl, setButtonType, setResultUrl }: Props) => {
-  console.log('render called header')
   return (
     <>
-      <Link href='/'>
-        <a><div className={styles.title} onClick={() => {
-          setFullUrl("");
-          setButtonType(TYPE_COMPRESS);
-          setResultUrl("");
-        }}>Hip.po</div></a>
-      </Link>
+      <div className={styles.header}>
+        <Link href='/'>
+          <a><img src={"/icons/logo_text.svg"} className={styles.logo} onClick={() => {
+            setFullUrl("");
+            setButtonType(TYPE_COMPRESS);
+            setResultUrl("");
+          }} /></a>
+        </Link>
+      </div>
     </>
   );
 }
-
-// class Header extends PureComponent<Props> {
-//   render() {
-//     console.log('render called header')
-//     return (
-//       <>
-//         <Link href='/'>
-//           <a><div className={styles.title} onClick={() => {
-//             this.props.setFullUrl("");
-//             this.props.setButtonType(TYPE_COMPRESS);
-//             this.props.setResultUrl("");
-//           }}>Hip.po</div></a>
-//         </Link>
-//       </>
-//     );
-//   }
-// }
 
 export default React.memo(Header);
