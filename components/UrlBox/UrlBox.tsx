@@ -81,15 +81,11 @@ const Formbox = ({ resultUrl, fullUrl, buttonType, setFullUrl, setButtonType, se
           {visible ? <img src={"/icons/btn_clear.svg"} className={styles.clear_btn} onClick={clearInputBox} /> : null}
           <input onChange={handleChange} onKeyPress={handleKeyPress} value={fullUrl} className={styles.url_box} spellCheck={"false"} placeholder={"http://"} />
           {buttonType === TYPE_COMPRESS ?
-            <Link href='/compress'>
-              <a>
-                <button
-                  onClick={handleSubmit}
-                  className={styles.submit}>
-                  {"URL 단축"}
-                </button>
-              </a>
-            </Link> :
+            <button
+              onClick={handleSubmit}
+              className={styles.submit}>
+              {"URL 단축"}
+            </button> :
             <CopyToClipboard text={resultUrl} onCopy={handleCopy}>
               <button className={styles.submit}>
                 {"URL 복사"}
