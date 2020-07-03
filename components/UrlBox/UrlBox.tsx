@@ -39,7 +39,7 @@ const Formbox = ({ resultUrl, fullUrl, buttonType, setFullUrl, setButtonType, se
   }
 
   const handleCopy = (copiedText: string, result: boolean) => {
-    // alert("복사 완료");
+    alert("복사되었습니다!");
     // TODO : alert 말고 깔끔한 알람창 구현
   }
 

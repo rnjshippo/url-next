@@ -14,7 +14,7 @@ export const getServerSideProps: GetServerSideProps = async ctx => {
   const fullUrl = rows?.[0]?.fullUrl;
   if (fullUrl) {
     await model.url.addHit(shortUrl);
-    console.log("add hits");
+    // console.log("add hits");
     res.writeHead(302, { 'Location': fullUrl });
     res.end();
   }

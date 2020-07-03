@@ -12,7 +12,8 @@ export default () => {
   return (
     <>
       <Head>
-        <title>단축URL 서비스 :: 링크 단축, 주소 줄이기</title>
+        <link rel="canonical" href="https://kooo.kr"></link>
+        <title>단축 URL 서비스 :: Kooo 쿠우 단축 링크, 주소 줄이기</title>
       </Head>
       <Header
         setFullUrl={setFullUrl}
