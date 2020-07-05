@@ -21,7 +21,7 @@ export default () => {
           setButtonType={setButtonType}
           setResultUrl={setResultUrl} />
       </header>
-      <main>
+      <section>
         <UrlBox
           setResultUrl={setResultUrl}
           setFullUrl={setFullUrl}
@@ -29,7 +29,7 @@ export default () => {
           fullUrl={fullUrl}
           resultUrl={resultUrl}
           buttonType={buttonType} />
-      </main>
+      </section>
     </>
   );
 }
