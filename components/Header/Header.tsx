@@ -10,17 +10,15 @@ interface Props {
 }
 const Header = ({ setFullUrl, setButtonType, setResultUrl }: Props) => {
   return (
-    <>
-      <div className={styles.header}>
-        <Link href='/'>
-          <a><img src={"/icons/logo_text.svg"} className={styles.logo} onClick={() => {
-            setFullUrl("");
-            setButtonType(TYPE_COMPRESS);
-            setResultUrl("");
-          }} /></a>
-        </Link>
-      </div>
-    </>
+    <div className={styles.header}>
+      <Link href='/'>
+        <a><img src={"/icons/logo_text.svg"} className={styles.logo} onClick={() => {
+          setFullUrl("");
+          setButtonType(TYPE_COMPRESS);
+          setResultUrl("");
+        }} /></a>
+      </Link>
+    </div>
   );
 }
 

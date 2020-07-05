@@ -32,13 +32,13 @@ export default class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-          <meta name="description" content="단축 url 서비스 Kooo, 짧은 링크로 단축해서 편리하게 사용하세요." />
+          <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+          <meta name="description" content="단축 url 서비스 Kooo 쿠우, 짧은 링크로 단축해서 편리하게 사용하세요." />
           <meta property="og:type" content="website" />
-          <meta property="og:title" content="Kooo - 단축 url 서비스" />
-          <meta property="og:description" content="단축 url 서비스 Kooo, 짧은 링크로 단축해서 편리하게 사용하세요." />
-          {/* <meta property="og:image" content="https://kooo.kr/.png"/> */}
-          <meta property="og:site_name" content="다이닝쿡" />
+          <meta property="og:title" content="단축 URL 서비스 - Kooo 쿠우 단축 링크" />
+          <meta property="og:description" content="단축 url 서비스 Kooo 쿠우, 짧은 링크로 단축해서 편리하게 사용하세요." />
+          <meta property="og:image" content="https://kooo.kr/icons/logo_text.svg" />
+          <meta property="og:site_name" content="kooo 쿠우" />
           <meta name="keywords" content="쿠, Kooo, kooo, link shortener, 단축 링크" />
           <link rel="shortcut icon" href="/icons/logo1.ico" type="image/x-icon"></link>
           <meta name="viewport" content="initial-scale=1.0, width=device-width" />
