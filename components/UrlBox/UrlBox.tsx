@@ -2,22 +2,13 @@ import React, { useState } from 'react';
 import styles from './UrlBox.module.scss';
 import * as service from '../../services/index';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
-import { TYPE_COMPRESS, TYPE_COPY, BASE_URL } from '../../lib/util'
-import Snackbar from '@material-ui/core/Snackbar';
-import MuiAlert, { AlertProps } from '@material-ui/lab/Alert';
-
-function Alert(props: AlertProps) {
-  return <MuiAlert elevation={6} variant="filled" {...props} />;
-}
-
-const successMsg: string = "URL이 성공적으로 단축되었습니다.";
-const failMsg: string = "유효하지 않은 URL입니다.";
-const errorMsg: string = "URL 변환 중 에러가 발생했습니다. 다시 한번 시도해주세요.";
+import * as util from '../../lib/util'
 
 interface Props {
   setFullUrl(url: string): void;
   setResultUrl(url: string): void;
   setButtonType(type: string): void;
+  setSnackbarInfo(type: util.SnackbarInfo): void;
   fullUrl: string;
   resultUrl: string;
   buttonType: string;
@@ -30,14 +21,7 @@ interface compressResponse {
   status: number
 }
 
-const Formbox = ({ resultUrl, fullUrl, buttonType, setFullUrl, setButtonType, setResultUrl }: Props) => {
-
-  /* 레이어 팝업 show 여부 state */
-  const [popupInfo, setPopupInfo] = useState({
-    visible: false,
-    success: false,
-    error: false
-  });
+const Formbox = ({ resultUrl, fullUrl, buttonType, setFullUrl, setButtonType, setResultUrl, setSnackbarInfo }: Props) => {
 
   /* clear 버튼 show 여부 state */
   const [showClearButton, setShowClearButton] = useState(false)
@@ -51,12 +35,11 @@ const Formbox = ({ resultUrl, fullUrl, buttonType, setFullUrl, setButtonType, se
       setShowClearButton(true);
     }
     setFullUrl(e?.target?.value?.trim());
-    setButtonType(TYPE_COMPRESS)
+    setButtonType(util.TYPE_COMPRESS)
   }
 
   const handleCopy = (copiedText: string, result: boolean) => {
-    alert("복사되었습니다!");
-    // TODO : alert 말고 깔끔한 알람창 구현
+    setSnackbarInfo({ type: util.TYPE_INFO, open: true, message: util.urlCopyMsg })
   }
 
   const handleKeyPress = (e: React.KeyboardEvent<HTMLElement>) => {
@@ -73,7 +56,10 @@ const Formbox = ({ resultUrl, fullUrl, buttonType, setFullUrl, setButtonType, se
   const handleSubmit = async (e: React.SyntheticEvent<HTMLElement>) => {
     e.preventDefault();
     const inputUrl: string = fullUrl.trim();
-    if (inputUrl === "") return;
+    if (inputUrl === "") {
+      setSnackbarInfo({ open: true, type: util.TYPE_WARNING, message: util.urlFailMsg });
+      return;
+    }
 
     const regex = RegExp(/^(((http(s?))\:\/\/)?)([0-9a-zA-Z\-]+\.)+[a-zA-Z]{2,6}(\:[0-9]+)?(\/\S*)?$/);
     const vaild: boolean = regex.test(inputUrl);
@@ -83,49 +69,35 @@ const Formbox = ({ resultUrl, fullUrl, buttonType, setFullUrl, setButtonType, se
       let { data: { shortUrl }, status }: compressResponse = await service.url.compressFullUrl(fullUrl);
       console.log(status, shortUrl)
       if (status === 200) {
-        setButtonType(TYPE_COPY);
-        setResultUrl(BASE_URL + shortUrl);
-        setFullUrl(BASE_URL + shortUrl);
+        setButtonType(util.TYPE_COPY);
+        setResultUrl(util.DOMAIN + shortUrl);
+        setFullUrl(util.DOMAIN + shortUrl);
 
         //TODO 성공시 팝업 구현
-        setPopupInfo({ visible: true, success: true, error: false });
+        setSnackbarInfo({ open: true, type: util.TYPE_SUCCESS, message: util.urlSuccessMsg });
 
       } else {
-        console.error("변환 실패"); //TODO : 변환 실패 처리 
         setFullUrl("");
-        setPopupInfo({ visible: true, success: false, error: true });
+        setSnackbarInfo({ open: true, type: util.TYPE_ERROR, message: util.urlErrorMsg });
       }
     } else {
       //TODO :: 비정상 Url 체크 후 팝업 구현
-      console.log("유효하지 않은 URL입니다.");
-      setPopupInfo({ visible: true, success: false, error: false });
+      setSnackbarInfo({ open: true, type: util.TYPE_WARNING, message: util.urlFailMsg });
     }
   }
 
-  const [open, setOpen] = useState(false);
 
-  const handleClick = () => {
-    setOpen(true);
-  };
-
-  const handleClose = (event: React.SyntheticEvent | React.MouseEvent, reason?: string) => {
-    if (reason === 'clickaway') {
-      return;
-    }
-
-    setOpen(false);
-  };
 
   return (
     <>
       <div className={styles.url_div}>
-        <div className={styles.title_div}>{titleText}</div>
-        <div className={styles.title_div2}>{subText}</div>
+        <div className={styles.title_div}>{util.titleText}</div>
+        <div className={styles.title_div2}>{util.subText}</div>
         <div className={styles.input_div}>
           <img src={"/icons/link.svg"} className={styles.link_btn}></img>
           {showClearButton ? <img src={"/icons/btn_clear.svg"} className={styles.clear_btn} onClick={clearInputBox} /> : null}
           <input onChange={handleChange} onKeyPress={handleKeyPress} value={fullUrl} className={styles.url_box} spellCheck={"false"} placeholder={"http://"} />
-          {buttonType === TYPE_COMPRESS ?
+          {buttonType === util.TYPE_COMPRESS ?
             <button
               onClick={handleSubmit}
               className={styles.submit}>
@@ -137,23 +109,12 @@ const Formbox = ({ resultUrl, fullUrl, buttonType, setFullUrl, setButtonType, se
               </button>
             </CopyToClipboard>}
         </div>
-        {resultUrl === "" ? <span className={styles.subtext}>{}</span> : <span className={styles.subtext}>{successText}</span>}
       </div>
-      <button onClick={handleClick}>button</button>
 
-      <Snackbar open={open} autoHideDuration={2500} onClose={handleClose}
-        anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}>
-        <Alert onClose={handleClose} severity={popupInfo.success ? "success" : "error"}>
-          This is a success message!
-        </Alert>
-      </Snackbar>
     </>
   )
 }
 
-const titleText: string = `가독성 떨어지는 링크는 그만!`;
-const subText: string = `kooo에서 단축한 링크로 편리하게 공유하세요.`;
-const successText: string = `단축되었습니다! 
-URL 복사버튼을 눌러서 단축된 URL을 사용하세요.`;
 
-export default Formbox; 
+// export default Formbox; 
+export default React.memo(Formbox);
