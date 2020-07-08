@@ -1,7 +1,7 @@
 export const APP_TITLE: string = "단축 URL 서비스 - Kooo 쿠우 단축 링크, 주소 줄이기";
 export const TYPE_COMPRESS: string = "compress";
 export const TYPE_COPY: string = "copy";
-export const DOMAIN: string = "http://kooo.kr/";
+export const DOMAIN: string = "https://kooo.kr/";
 
 export const TYPE_SUCCESS: string = "success";
 export const TYPE_ERROR: string = "error";
