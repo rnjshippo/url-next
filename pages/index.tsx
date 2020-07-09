@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Header, UrlBox, KakaoMobileAd, KakaoWebAd } from '../components/index'
+import { Header, UrlBox, KakaoMobileAd } from '../components/index'
 import Head from 'next/head'
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert, { AlertProps } from '@material-ui/lab/Alert';
@@ -62,7 +62,6 @@ const Index = () => {
           {snackbarInfo.message}
         </Alert>
       </Snackbar>
-      {/* <KakaoWebAd /> */}
       <KakaoMobileAd />
       <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
     </>
