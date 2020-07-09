@@ -17,6 +17,9 @@ time, mark, audio, video {
 	font-size: 100%;
   vertical-align: baseline;
 }
+body{
+  position: relative;
+}
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
@@ -105,4 +108,10 @@ a {
 
 * {
   font-family: 'NanumSquareRound', 'Noto Sans', 'Noto Sans KR', '맑은고딕', 'MalgunGothic', sans-serif;
+}
+
+body{
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }

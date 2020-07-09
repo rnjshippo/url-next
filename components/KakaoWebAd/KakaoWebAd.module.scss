@@ -1,0 +1,12 @@
+.ad_box{
+  display: none;
+}
+
+@media ( min-width: 720px ) {
+  .ad_box{
+    display: block;
+    max-width: 720px;
+    width:100%;
+    margin:0 auto;
+  }
+}
