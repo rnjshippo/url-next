@@ -94,7 +94,7 @@ const Formbox = ({ resultUrl, fullUrl, buttonType, setFullUrl, setButtonType, se
         <div className={styles.title_div}>{util.titleText}</div>
         <div className={styles.title_div2}>{util.subText}</div>
         <div className={styles.input_div}>
-          <img src={"/icons/link.svg"} className={styles.link_btn}></img>
+          <img src={"/icons/link.svg"} className={styles.link_btn} />
           {showClearButton ? <img src={"/icons/btn_clear.svg"} className={styles.clear_btn} onClick={clearInputBox} /> : null}
           <input onChange={handleChange} onKeyPress={handleKeyPress} value={fullUrl} className={styles.url_box} spellCheck={"false"} placeholder={"http://"} />
           {buttonType === util.TYPE_COMPRESS ?

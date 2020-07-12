@@ -39,7 +39,7 @@ export default class MyDocument extends Document {
           <meta property="og:description" content="단축 url 서비스 Kooo 쿠우, 짧은 링크로 단축해서 편리하게 사용하세요." />
           <meta property="og:image" content="https://kooo.kr/icons/logo_text.svg" />
           <meta property="og:site_name" content="kooo 쿠우" />
-          <meta name="keywords" content="쿠, Kooo, kooo, link shortener, 단축 링크" />
+          <meta name="keywords" content="쿠우, Kooo, kooo, link shortener, 단축 링크" />
           <link rel="shortcut icon" href="/icons/logo1.ico" type="image/x-icon"></link>
           <meta name="viewport" content="initial-scale=1.0, width=device-width" />
           <meta name="naver-site-verification" content="56e705fe3206a797fb0981b369c8e2c668df453b" />
