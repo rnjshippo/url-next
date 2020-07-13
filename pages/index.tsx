@@ -62,7 +62,7 @@ const Index = () => {
           {snackbarInfo.message}
         </Alert>
       </Snackbar>
-      <KakaoMobileAd />
+      {/* <KakaoMobileAd /> */}
       <script type="text/javascript" src="//t1.daumcdn.net/kas/static/ba.min.js" async></script>
     </>
   );
