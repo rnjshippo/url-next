@@ -1,25 +1,12 @@
 import React from 'react';
-import Link from 'next/link';
 import styles from './Header.module.scss';
-import { TYPE_COMPRESS } from '../../lib/util'
 
-interface Props {
-  setFullUrl(url: string): void;
-  setButtonType(type: string): void;
-  setResultUrl(url: string): void;
-}
-const Header = ({ setFullUrl, setButtonType, setResultUrl }: Props) => {
+const Header: React.FC = () => {
   return (
     <div className={styles.header}>
-      <Link href='/'>
-        <a><img src={"/icons/logo_text.svg"} className={styles.logo} onClick={() => {
-          setFullUrl("");
-          setButtonType(TYPE_COMPRESS);
-          setResultUrl("");
-        }} /></a>
-      </Link>
+      <a href='/'><img src={"/icons/logo_text.svg"} className={styles.logo} /></a>
     </div>
   );
 }
 
-export default React.memo(Header);
+export default Header;

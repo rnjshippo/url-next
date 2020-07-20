@@ -1,4 +1,5 @@
 export const APP_TITLE: string = "단축 URL 서비스 - Kooo 쿠우 단축 링크, 주소 줄이기";
+export const APP_COLOR: string = "#1abc9c";
 export const TYPE_COMPRESS: string = "compress";
 export const TYPE_COPY: string = "copy";
 export const DOMAIN: string = "https://kooo.kr/";
@@ -17,6 +18,8 @@ export const urlCopyMsg: string = "클립보드에 복사되었습니다.";
 
 export const titleText: string = `가독성 떨어지는 링크는 그만!`;
 export const subText: string = `kooo에서 단축한 링크로 편리하게 공유하세요.`;
+
+export const coupangText: string = `* 쿠팡파트너스 활동으로 소정의 수수료를 얻을 수 있습니다.`;
 
 export interface SnackbarInfo {
   open: boolean;

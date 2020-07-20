@@ -1,0 +1,18 @@
+.header{
+  width:48rem;
+  display: block;
+  margin: 0 auto;
+  grid-column: 1/end;
+}
+.logo{
+  width:16rem;
+}
+
+@media ( max-width: 767px ) {
+  .header{
+    width:100%;
+  }
+  .logo{
+    width:37.5%;
+  }
+}

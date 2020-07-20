@@ -37,10 +37,7 @@ const Index = () => {
         <title>{util.APP_TITLE}</title>
       </Head>
       <header>
-        <Header
-          setFullUrl={setFullUrl}
-          setButtonType={setButtonType}
-          setResultUrl={setResultUrl} />
+        <Header />
       </header>
       <section>
         <UrlBox
