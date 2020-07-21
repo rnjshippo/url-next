@@ -2,7 +2,9 @@ export const APP_TITLE: string = "단축 URL 서비스 - Kooo 쿠우 단축 링�
 export const APP_COLOR: string = "#1abc9c";
 export const TYPE_COMPRESS: string = "compress";
 export const TYPE_COPY: string = "copy";
-export const DOMAIN: string = "https://kooo.kr/";
+export const DOMAIN: string = "https://kooo.kr";
+export const DOMAIN_DEV: string = "http://localhost:3000";
+// export const DOMAIN_DEV: string = "http://121.142.160.160:3000";
 
 export const TYPE_SUCCESS: string = "success";
 export const TYPE_ERROR: string = "error";

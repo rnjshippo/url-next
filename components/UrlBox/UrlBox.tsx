@@ -70,8 +70,8 @@ const Formbox = ({ resultUrl, fullUrl, buttonType, setFullUrl, setButtonType, se
       console.log(status, shortUrl)
       if (status === 200) {
         setButtonType(util.TYPE_COPY);
-        setResultUrl(util.DOMAIN + shortUrl);
-        setFullUrl(util.DOMAIN + shortUrl);
+        setResultUrl(`${util.DOMAIN}/${shortUrl}`);
+        setFullUrl(`${util.DOMAIN}/${shortUrl}`);
 
         //TODO 성공시 팝업 구현
         setSnackbarInfo({ open: true, type: util.TYPE_SUCCESS, message: util.urlSuccessMsg });

@@ -1,13 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
-import { coupangText, APP_COLOR } from '../../lib/util';
+import { coupangText } from '../../lib/util';
 
-const CoupangItemContainer = ({ url, img }) => {
+const CoupangItemContainer = ({ name, url, img }) => {
   return (
     <>
       <Container>
-        <Picture image={img} />
         <a href={url}>
+          <Picture image={img} />
+          <ItemName>{name}</ItemName>
           <RedirectBox>
             <CoupangLogo></CoupangLogo>
             <CoupangText>{'🚚  상품 자세히 보기  🚛'}</CoupangText>
@@ -34,20 +35,30 @@ const Container = styled.div`
   box-sizing: border-box;
 
   @media ( max-width: 767px ) {
-    width:95%;
+    width:100%;
   }
+`;
+const ItemName = styled.div`
+  font-size:1rem;
+  font-weight:600;
+  margin-bottom : 1rem;
+  width: 18rem;
+  margin:1rem auto 0 auto;
 `;
 
 const Picture = styled.div<PictureProps>`
   width:20rem;
   min-height: 20rem;
   margin:0 auto;
-  // background-color:${APP_COLOR};
-  background-image: url(${props => props.image});
+  background: url('${props => props.image}') center center no-repeat;
+  background-size : 20rem 20rem;
+  box-shadow: -5px 5px 10px #aaa;
 
   @media ( max-width: 767px ) {
-    width:70%;
-    height:70%;
+    width:70vw;
+    height:70vw;
+    max-width:20rem;
+    max-height:20rem;
   }
 `;
 

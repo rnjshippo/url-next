@@ -7,15 +7,16 @@ import { CoupangItemContainer } from '../../components/index';
 
 interface Props {
   name: string;
+  code: string;
   url: string;
   img: string;
   hit: string;
 }
 
-const Coupang: React.FC<Props> = ({ name, url, img, hit }: Props) => {
+const Coupang: React.FC<Props> = ({ name, code, url, img }: Props) => {
   useEffect(() => {
     async function inner() {
-      const res = await service.coupang.addHits(name);
+      const res = await service.coupang.addHits(code);
       const json = await res.json();
     }
     inner();
@@ -23,7 +24,7 @@ const Coupang: React.FC<Props> = ({ name, url, img, hit }: Props) => {
   return (
     <>
       <CoupangHeader />
-      <CoupangItemContainer img={img} url={url} />
+      <CoupangItemContainer name={name} img={img} url={url} />
     </>
   )
 }
@@ -33,8 +34,8 @@ const Coupang: React.FC<Props> = ({ name, url, img, hit }: Props) => {
 export const getStaticPaths: GetStaticPaths = async () => {
 
   const [rows] = await model.coupang.getCoupangItems();
-  const paths = rows.map(({ name }) => {
-    return { params: { item: name } }
+  const paths = rows.map(({ code }) => {
+    return { params: { item: code } }
   });
 
   return { paths, fallback: false };
@@ -44,9 +45,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   const item: string = String(params?.item)
   const [rows] = await model.coupang.getFullCoupangUrl(item);
-  const { name, url, img, hit } = rows[0];
+  const { name, code, url, img } = rows[0];
 
-  return { props: { name, url, img, hit } }
+  return { props: { name, code, url, img } }
 }
 
 
