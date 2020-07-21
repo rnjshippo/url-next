@@ -8,7 +8,7 @@ export const getFullCoupangUrl = (code: string) => {
 }
 
 export const getCoupangItems = () => {
-  let sql = "SELECT * FROM Coupang;";
+  let sql = "SELECT * FROM Coupang order by no desc;";
   return pool.execute(sql);
 }
 
@@ -20,6 +20,11 @@ export const addHits = (code: String) => {
 export const addCoupangItem = (name: string, code: string, url: string, img: string) => {
   let sql = "INSERT INTO Coupang (name, code, url, img) VALUES (?, ?, ?, ?);";
   return pool.execute(sql, [name, code, url, img]);
+}
+
+export const deleteCoupangItem = (code: string) => {
+  let sql = "DELETE FROM Coupang WHERE code=?;";
+  return pool.execute(sql, [code]);
 }
 
 export const login = (id: string) => {

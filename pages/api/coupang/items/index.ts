@@ -3,7 +3,8 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import * as model from '../../../../models/index';
 
 /**
- * GET /api/coupang/items
+ * GET /api/coupang/items : 조회
+ * POST /api/coupang/items : 삭제 용도
  */
 export default authenticated(function Items(req: NextApiRequest, res: NextApiResponse) {
   return new Promise(async resolve => {
@@ -13,6 +14,15 @@ export default authenticated(function Items(req: NextApiRequest, res: NextApiRes
         res.status(200).json({ message: "success", items: rows });
         resolve();
         break;
+
+      case "POST":
+        const { code } = req.body;
+        console.log(code)
+        await model.coupang.deleteCoupangItem(code);
+        res.json({ message: "success" });
+        resolve();
+        break;
+
       default:
         res.status(405).json({ message: "Not supported method" });
         resolve();

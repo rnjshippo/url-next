@@ -32,3 +32,11 @@ export const uploadImage = (formData: FormData) => {
     body: formData
   })
 }
+
+export const deleteCoupangItem = (code: string) => {
+  return fetch('/api/coupang/items', {
+    method: "POST",
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ code })
+  })
+}

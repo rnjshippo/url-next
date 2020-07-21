@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { CoupangHeader } from '../../components';
-import { GetStaticPaths, GetStaticProps } from 'next';
+import { GetStaticPaths, GetStaticProps, GetServerSideProps } from 'next';
 import * as model from '../../models/index';
 import * as service from '../../services/index';
 import { CoupangItemContainer } from '../../components/index';
@@ -28,6 +28,17 @@ const Coupang: React.FC<Props> = ({ name, code, url, img }: Props) => {
     </>
   )
 }
+
+// export const getServerSideProps: GetServerSideProps = async ({ params }) => {
+
+//   const item: string = String(params?.item)
+//   const [rows] = await model.coupang.getFullCoupangUrl(item);
+//   const { name, code, url, img } = rows[0];
+
+//   return { props: { name, code, url, img } }
+// }
+
+
 /**
  *  DB 업데이트시 다시 bulid 해야됨.
  */

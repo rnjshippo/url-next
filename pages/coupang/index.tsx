@@ -2,7 +2,7 @@ import React from 'react';
 import { CoupangHeader } from '../../components/index';
 import styled from 'styled-components';
 import Link from 'next/link';
-import { GetStaticProps } from 'next';
+import { GetStaticProps, GetServerSideProps } from 'next';
 import * as model from '../../models/index';
 
 interface ItemProps {
@@ -48,6 +48,11 @@ export const getStaticProps: GetStaticProps = async () => {
   const [rows] = await model.coupang.getCoupangItems();
   return { props: { items: rows ? JSON.parse(JSON.stringify(rows)) : [], } }
 }
+
+// export const getServerSideProps: GetServerSideProps = async () => {
+//   const [rows] = await model.coupang.getCoupangItems();
+//   return { props: { items: rows ? JSON.parse(JSON.stringify(rows)) : [], } }
+// }
 
 const Container = styled.div`
   width:64rem;
