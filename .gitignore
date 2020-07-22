@@ -15,6 +15,7 @@
 
 # production
 /build
+/public/imgs/*
 
 # misc
 .DS_Store

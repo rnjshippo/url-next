@@ -44,11 +44,13 @@ export default class MyDocument extends Document {
           <meta name="viewport" content="initial-scale=1.0, width=device-width" />
           <meta name="naver-site-verification" content="56e705fe3206a797fb0981b369c8e2c668df453b" />
           <meta name="google-site-verification" content="kmclZmfXx9XsheBWrT-z4tGtI7zHB1UnIQHGxKlRv6I" />
-          <script data-ad-client="ca-pub-7734816292584430" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+          {/* <script data-ad-client="ca-pub-7734816292584430" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> */}
+          <script src="https://ads-partners.coupang.com/g.js"></script>
         </Head>
         <body>
           <Main />
           <NextScript />
+
         </body>
       </Html>
     )

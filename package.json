@@ -32,12 +32,14 @@
     "react": "^16.13.1",
     "react-copy-to-clipboard": "^5.0.2",
     "react-dom": "^16.13.1",
+    "react-helmet": "^6.1.0",
     "react-responsive": "^8.1.0",
     "sass": "^1.26.9",
     "shortid": "^2.2.15",
     "styled-components": "^5.1.1",
     "styled-components-breakpoint": "^3.0.0-preview.20",
-    "swr": "^0.2.2"
+    "swr": "^0.2.2",
+    "use-script": "^2.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.1",

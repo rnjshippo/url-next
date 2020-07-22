@@ -1,8 +1,26 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { coupangText } from '../../lib/util';
 
+const createAd = () => {
+  let ins = document.getElementsByTagName('ins');
+  if (!ins.length) {
+    new PartnersCoupang.G({ id: 282179 })
+    let insStyle = ins[0].style;
+    insStyle.display = 'block';
+    insStyle.maxWidth = '680px';
+    insStyle.width = "100%";
+    insStyle.marginBottom = '0';
+    insStyle.marginTop = '0';
+    insStyle.marginLeft = 'auto';
+    insStyle.marginRight = 'auto';
+  }
+}
+
 const CoupangItemContainer = ({ name, url, img }) => {
+
+  useEffect(createAd, []);
+
   return (
     <>
       <Container>
@@ -30,7 +48,7 @@ const Container = styled.div`
   display:flex;
   flex-direction: column;
   width:43rem;
-  min-height: 70vh;
+  min-height: 60vh;
   margin: .5rem auto;
   box-sizing: border-box;
 
@@ -47,18 +65,18 @@ const ItemName = styled.div`
 `;
 
 const Picture = styled.div<PictureProps>`
-  width:20rem;
-  min-height: 20rem;
+  width:15rem;
+  min-height: 15rem;
   margin:0 auto;
   background: url('${props => props.image}') center center no-repeat;
-  background-size : 20rem 20rem;
+  background-size : 15rem 15rem;
   box-shadow: -5px 5px 10px #aaa;
 
   @media ( max-width: 767px ) {
     width:70vw;
     height:70vw;
-    max-width:20rem;
-    max-height:20rem;
+    max-width:15rem;
+    max-height:15rem;
   }
 `;
 
@@ -90,7 +108,8 @@ const RedirectBox = styled.div`
 
 //flex: 증가너비 감소너비 기본너비;
 const Message = styled.div`
-  font-size:0.7rem;
+  font-size:0.65rem;
   color: #aaa;
-  margin-top : 13rem;
+  margin-top : .5rem;
+  padding-left: 12px;
 `;

@@ -18,6 +18,7 @@ const Coupang: React.FC<Props> = ({ name, code, url, img }: Props) => {
     async function inner() {
       const res = await service.coupang.addHits(code);
       const json = await res.json();
+      console.log(json)
     }
     inner();
   }, []);
@@ -29,30 +30,7 @@ const Coupang: React.FC<Props> = ({ name, code, url, img }: Props) => {
   )
 }
 
-// export const getServerSideProps: GetServerSideProps = async ({ params }) => {
-
-//   const item: string = String(params?.item)
-//   const [rows] = await model.coupang.getFullCoupangUrl(item);
-//   const { name, code, url, img } = rows[0];
-
-//   return { props: { name, code, url, img } }
-// }
-
-
-/**
- *  DB 업데이트시 다시 bulid 해야됨.
- */
-export const getStaticPaths: GetStaticPaths = async () => {
-
-  const [rows] = await model.coupang.getCoupangItems();
-  const paths = rows.map(({ code }) => {
-    return { params: { item: code } }
-  });
-
-  return { paths, fallback: false };
-}
-
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getServerSideProps: GetServerSideProps = async ({ params }) => {
 
   const item: string = String(params?.item)
   const [rows] = await model.coupang.getFullCoupangUrl(item);
@@ -60,6 +38,29 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   return { props: { name, code, url, img } }
 }
+
+
+/**
+ *  DB 업데이트시 다시 bulid 해야됨.
+ */
+// export const getStaticPaths: GetStaticPaths = async () => {
+
+//   const [rows] = await model.coupang.getCoupangItems();
+//   const paths = rows.map(({ code }) => {
+//     return { params: { item: code } }
+//   });
+
+//   return { paths, fallback: false };
+// }
+
+// export const getStaticProps: GetStaticProps = async ({ params }) => {
+
+//   const item: string = String(params?.item)
+//   const [rows] = await model.coupang.getFullCoupangUrl(item);
+//   const { name, code, url, img } = rows[0];
+
+//   return { props: { name, code, url, img } }
+// }
 
 
 

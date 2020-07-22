@@ -1,10 +1,10 @@
 import * as util from '../../lib/util';
 
-export const addHits = (name: string) => {
+export const addHits = (code: string) => {
   return fetch('/api/coupang/hit', {
     method: "POST",
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ name })
+    body: JSON.stringify({ code })
   })
 }
 

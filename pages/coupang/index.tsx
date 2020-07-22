@@ -44,15 +44,15 @@ export default function ({ items }: CoupangItemsProps) {
   )
 }
 
-export const getStaticProps: GetStaticProps = async () => {
-  const [rows] = await model.coupang.getCoupangItems();
-  return { props: { items: rows ? JSON.parse(JSON.stringify(rows)) : [], } }
-}
-
-// export const getServerSideProps: GetServerSideProps = async () => {
+// export const getStaticProps: GetStaticProps = async () => {
 //   const [rows] = await model.coupang.getCoupangItems();
 //   return { props: { items: rows ? JSON.parse(JSON.stringify(rows)) : [], } }
 // }
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  const [rows] = await model.coupang.getCoupangItems();
+  return { props: { items: rows ? JSON.parse(JSON.stringify(rows)) : [], } }
+}
 
 const Container = styled.div`
   width:64rem;
@@ -108,44 +108,3 @@ const Item = styled.div<props>`
     // background-size : 95% 95vw;
   }
 `
-
-
-// const Container = styled.div`
-//   width:64rem;
-//   margin:0 auto;
-
-//   @media (max-width:1023px){
-//     width:100%;
-//   }
-// `;
-
-// const FlexContainer = styled.div`
-//   display:flex;
-//   flex-wrap: wrap;
-//   justify-content:flex-start;
-
-//   @media (max-width:1023px){
-//   }
-
-//   @media (max-width:650px){
-//     flex-direction:column;
-//   }
-// `;
-
-// const ItemBox = styled.div`
-//   width:20rem;
-//   height: 20rem;
-//   margin:1rem auto;
-//   flex:1 1 0;
-// `;
-
-// const Item = styled.div<props>`
-//   background: url('${props => props.img}') center center no-repeat;
-//   background-size : 18rem 18rem;
-//   width:100%;
-//   height:100%;
-//   margin:0 auto;
-//   @media (max-width:320px){
-//     background-size : 95% 95vw;
-//   }
-// `
