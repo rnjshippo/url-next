@@ -60,23 +60,23 @@ const ItemName = styled.div`
   font-size:1rem;
   font-weight:600;
   margin-bottom : 1rem;
-  width: 18rem;
-  margin:1rem auto 0 auto;
+  width: 17rem;
+  margin:1.5rem auto 0 auto;
 `;
 
 const Picture = styled.div<PictureProps>`
-  width:15rem;
-  min-height: 15rem;
+  width:17rem;
+  min-height: 17rem;
   margin:0 auto;
   background: url('${props => props.image}') center center no-repeat;
-  background-size : 15rem 15rem;
+  background-size : 17rem 17rem;
   box-shadow: -5px 5px 10px #aaa;
 
   @media ( max-width: 767px ) {
     width:70vw;
     height:70vw;
-    max-width:15rem;
-    max-height:15rem;
+    max-width:17rem;
+    max-height:17rem;
   }
 `;
 
@@ -94,11 +94,11 @@ const CoupangText = styled.div`
 `;
 
 const RedirectBox = styled.div`
-  width: 15rem;
+  width: 17rem;
   height: 3.5rem;
   color:#333;
   font-size:1rem;
-  margin: 2.5rem auto;
+  margin: 2rem auto 3rem auto;
   text-align:center;
 
   @media ( max-width: 767px ) {
