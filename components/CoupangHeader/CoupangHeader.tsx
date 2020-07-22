@@ -5,7 +5,7 @@ import Link from 'next/link';
 const CoupangHeader: React.FC = () => {
   return (
     <div className={styles.header}>
-      <Link href={'/coupang'}>
+      <Link href={'/co'}>
         <a><img src={"/icons/logo_text.svg"} className={styles.logo} /></a>
       </Link>
     </div>

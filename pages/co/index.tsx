@@ -29,7 +29,7 @@ export default function ({ items }: CoupangItemsProps) {
         <CoupangHeader />
         <GridContainer>
           {items.map(({ no, name, code, img, hit, url }: ItemProps) => (
-            <Link href="/coupang/[item]" as={`/coupang/${code}`} key={no}>
+            <Link href="/co/[item]" as={`/co/${code}`} key={no}>
               <a>
                 <ItemBox>
                   <Item img={img} />

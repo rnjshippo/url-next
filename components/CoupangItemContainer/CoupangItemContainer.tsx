@@ -5,6 +5,7 @@ import { coupangText } from '../../lib/util';
 const createAd = () => {
   let ins = document.getElementsByTagName('ins');
   if (!ins.length) {
+    /* 이 부분 에러 무시해야됨 */
     new PartnersCoupang.G({ id: 282179 })
     let insStyle = ins[0].style;
     insStyle.display = 'block';
