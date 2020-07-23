@@ -10,7 +10,8 @@ interface Props {
   code: string;
   url: string;
   img: string;
-  hit: string;
+  hit?: number;
+  view?: number;
 }
 
 const Coupang: React.FC<Props> = ({ name, code, url, img }: Props) => {
@@ -33,7 +34,7 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
 
   const item: string = String(params?.item)
   const [rows] = await model.coupang.getFullCoupangUrl(item);
-  const { name, code, url, img } = rows[0];
+  const { name, code, url, img }: Props = rows[0];
 
   return { props: { name, code, url, img } }
 }
