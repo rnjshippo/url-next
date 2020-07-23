@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { coupangText } from '../../lib/util';
+import * as service from '../../services/index';
+import Router from 'next/router';
 
 const createAd = () => {
   let ins = document.getElementsByTagName('ins');
@@ -18,14 +20,20 @@ const createAd = () => {
   }
 }
 
-const CoupangItemContainer = ({ name, url, img }) => {
+
+
+const CoupangItemContainer = ({ name, url, img, code }) => {
 
   useEffect(createAd, []);
+
+  const handleLinkClick = async () => {
+    service.coupang.addHits(code);
+  }
 
   return (
     <>
       <Container>
-        <a href={url}>
+        <a href={url} onClick={handleLinkClick}>
           <Picture image={img} />
           <ItemName>{name}</ItemName>
           <RedirectBox>
