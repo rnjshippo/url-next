@@ -14,14 +14,6 @@ interface Props {
 }
 
 const Coupang: React.FC<Props> = ({ name, code, url, img }: Props) => {
-  // useEffect(() => {
-  //   async function inner() {
-  //     const res = await service.coupang.addHits(code);
-  //     const json = await res.json();
-  //     console.log(json)
-  //   }
-  //   inner();
-  // }, []);
   return (
     <>
       <CoupangHeader />
