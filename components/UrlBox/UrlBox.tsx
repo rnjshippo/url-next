@@ -3,12 +3,13 @@ import styles from './UrlBox.module.scss';
 import * as service from '../../services/index';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import * as util from '../../lib/util'
+import * as types from '../../lib/types'
 
 interface Props {
   setFullUrl(url: string): void;
   setResultUrl(url: string): void;
   setButtonType(type: string): void;
-  setSnackbarInfo(type: util.SnackbarInfo): void;
+  setSnackbarInfo(type: types.SnackbarInfo): void;
   fullUrl: string;
   resultUrl: string;
   buttonType: string;

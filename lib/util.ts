@@ -4,7 +4,6 @@ export const TYPE_COMPRESS: string = "compress";
 export const TYPE_COPY: string = "copy";
 export const DOMAIN: string = "https://kooo.kr";
 export const DOMAIN_DEV: string = "http://localhost:3000";
-// export const DOMAIN_DEV: string = "http://121.142.160.160:3000";
 
 export const TYPE_SUCCESS: string = "success";
 export const TYPE_ERROR: string = "error";
@@ -22,9 +21,3 @@ export const titleText: string = `가독성 떨어지는 링크는 그만!`;
 export const subText: string = `kooo에서 단축한 링크로 편리하게 공유하세요.`;
 
 export const coupangText: string = `* 쿠팡파트너스 활동으로 소정의 수수료를 얻을 수 있습니다.`;
-
-export interface SnackbarInfo {
-  open: boolean;
-  type: string;
-  message: string;
-}

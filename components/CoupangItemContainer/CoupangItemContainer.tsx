@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { coupangText } from '../../lib/util';
 import * as service from '../../services/index';
-import Router from 'next/router';
 
 const createAd = () => {
   let ins = document.getElementsByTagName('ins');

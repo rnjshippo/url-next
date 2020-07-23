@@ -1,8 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { CoupangHeader } from '../../components';
 import { GetStaticPaths, GetStaticProps, GetServerSideProps } from 'next';
 import * as model from '../../models/index';
-import * as service from '../../services/index';
 import { CoupangItemContainer } from '../../components/index';
 
 interface Props {

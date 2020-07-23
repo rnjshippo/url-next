@@ -4,6 +4,7 @@ import Head from 'next/head'
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert, { AlertProps } from '@material-ui/lab/Alert';
 import * as util from '../lib/util';
+import * as types from '../lib/types';
 
 const Alert = (props: AlertProps) => {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -17,7 +18,7 @@ const Index = () => {
   const [buttonType, setButtonType] = useState(util.TYPE_COMPRESS); //compress 일때 압축, copy 일때 복사
 
   /* 스낵바 정보 state */
-  const [snackbarInfo, setSnackbarInfo] = useState<util.SnackbarInfo>({
+  const [snackbarInfo, setSnackbarInfo] = useState<types.SnackbarInfo>({
     open: false,
     type: util.TYPE_INFO,
     message: ""
