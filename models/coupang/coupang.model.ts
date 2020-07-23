@@ -17,6 +17,12 @@ export const addHits = (code: String) => {
   return pool.execute(sql, [code]);
 }
 
+export const addViewCount = (code: String) => {
+  let sql = "UPDATE Coupang SET view=view+1 WHERE code=?;";
+  return pool.execute(sql, [code]);
+}
+
+
 export const addCoupangItem = (name: string, code: string, url: string, img: string) => {
   let sql = "INSERT INTO Coupang (name, code, url, img) VALUES (?, ?, ?, ?);";
   return pool.execute(sql, [name, code, url, img]);

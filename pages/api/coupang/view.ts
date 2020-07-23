@@ -6,7 +6,7 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
     case "POST":
       const { code } = req.body;
       if (code) {
-        await model.coupang.addHits(code);
+        await model.coupang.addViewCount(code);
         res.status(200).json({ message: "success" });
       } else {
         res.json({ message: "code is not exist" });

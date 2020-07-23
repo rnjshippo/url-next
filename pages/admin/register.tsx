@@ -50,7 +50,7 @@ const Register = ({ items }) => {
     const res = await service.coupang.uploadImage(formData);
     const json = await res.json();
     if (json.message === "success") {
-      Router.push('/coupang');
+      Router.push('/co');
     } else {
       alert("등록 실패");
     }

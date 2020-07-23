@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { CoupangHeader } from '../../components';
 import { GetStaticPaths, GetStaticProps, GetServerSideProps } from 'next';
 import * as model from '../../models/index';
+import * as service from '../../services/index';
 import { CoupangItemContainer } from '../../components/index';
 
 interface Props {
@@ -13,6 +14,13 @@ interface Props {
 }
 
 const Coupang: React.FC<Props> = ({ name, code, url, img }: Props) => {
+  useEffect(() => {
+    async function inner() {
+      const res = await service.coupang.addViewCount(code);
+    }
+
+    inner();
+  }, [])
   return (
     <>
       <CoupangHeader />
