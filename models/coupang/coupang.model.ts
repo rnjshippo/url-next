@@ -2,7 +2,7 @@ import db from '../../lib/db_connection';
 
 const pool = db();
 
-export const getFullCoupangUrl = (code: string) => {
+export const getCoupangItem = (code: string) => {
   let sql = "SELECT * FROM Coupang WHERE code=?;";
   return pool.execute(sql, [code]);
 }

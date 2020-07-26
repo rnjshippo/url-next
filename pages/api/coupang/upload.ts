@@ -1,9 +1,6 @@
 import formidable from 'formidable';
 import { NextApiResponse, NextApiRequest } from 'next';
-import multer from 'multer';
 import * as model from '../../../models/index';
-
-const upload = multer({ dest: '/public/imgs/coupang' })
 
 export const config = {
   api: {
